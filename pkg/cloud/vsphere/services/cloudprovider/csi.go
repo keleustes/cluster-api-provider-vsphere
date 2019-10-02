@@ -22,7 +22,7 @@ import (
 	storagev1beta1 "k8s.io/api/storage/v1beta1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/util/intstr"
-	"sigs.k8s.io/cluster-api-provider-vsphere/api/v1alpha2/cloudprovider"
+	"sigs.k8s.io/cluster-api-provider-vsphere/api/v1alpha3/cloudprovider"
 	"sigs.k8s.io/cluster-api-provider-vsphere/pkg/cloud/vsphere/context"
 )
 

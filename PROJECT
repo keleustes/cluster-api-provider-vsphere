@@ -3,11 +3,11 @@ domain: cluster.x-k8s.io
 repo: sigs.k8s.io/cluster-api-provider-vsphere
 resources:
 - group: infrastructure
-  version: v1alpha2
+  version: v1alpha3
   kind: VSphereCluster
 - group: infrastructure
-  version: v1alpha2
+  version: v1alpha3
   kind: VSphereMachine
 - group: infrastructure
-  version: v1alpha2
+  version: v1alpha3
   kind: VSphereMachineTemplate

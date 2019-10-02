@@ -160,7 +160,7 @@ The Cluster and Machine resource in `./out/workload-cluster-1/cluster.yaml` and 
 **`./out/workload-cluster-1/cluster.yaml`**
 
 ```yaml
-apiVersion: cluster.x-k8s.io/v1alpha2
+apiVersion: cluster.x-k8s.io/v1alpha3
 kind: Cluster
 metadata:
   name: workload-cluster-1
@@ -175,12 +175,12 @@ spec:
       - 100.64.0.0/13
     serviceDomain: cluster.local
   infrastructureRef:
-    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha2
+    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
     kind: VSphereCluster
     name: workload-cluster-1
     namespace: default
 ---
-apiVersion: infrastructure.cluster.x-k8s.io/v1alpha2
+apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
 kind: VSphereCluster
 metadata:
   name: workload-cluster-1
@@ -216,7 +216,7 @@ spec:
 **`./out/workload-cluster-1/controlplane.yaml`**
 
 ```yaml
-apiVersion: bootstrap.cluster.x-k8s.io/v1alpha2
+apiVersion: bootstrap.cluster.x-k8s.io/v1alpha3
 kind: KubeadmConfig
 metadata:
   name: workload-cluster-1-controlplane-0
@@ -247,7 +247,7 @@ spec:
     - "The public side of an SSH key pair."
     sudo: ALL=(ALL) NOPASSWD:ALL
 ---
-apiVersion: cluster.x-k8s.io/v1alpha2
+apiVersion: cluster.x-k8s.io/v1alpha3
 kind: Machine
 metadata:
   labels:
@@ -258,18 +258,18 @@ metadata:
 spec:
   bootstrap:
     configRef:
-      apiVersion: bootstrap.cluster.x-k8s.io/v1alpha2
+      apiVersion: bootstrap.cluster.x-k8s.io/v1alpha3
       kind: KubeadmConfig
       name: workload-cluster-1-controlplane-0
       namespace: default
   infrastructureRef:
-    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha2
+    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
     kind: VSphereMachine
     name: workload-cluster-1-controlplane-0
     namespace: default
   version: 1.15.4
 ---
-apiVersion: infrastructure.cluster.x-k8s.io/v1alpha2
+apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
 kind: VSphereMachine
 metadata:
   labels:
@@ -293,7 +293,7 @@ spec:
 To add an additional worker node to your cluster, please see the generated machineset file `./out/workload-cluster-1/machinedeployment.yaml`:
 
 ```yaml
-apiVersion: bootstrap.cluster.x-k8s.io/v1alpha2
+apiVersion: bootstrap.cluster.x-k8s.io/v1alpha3
 kind: KubeadmConfigTemplate
 metadata:
   name: workload-cluster-1-md-0
@@ -318,7 +318,7 @@ spec:
         - "The public side of an SSH key pair."
         sudo: ALL=(ALL) NOPASSWD:ALL
 ---
-apiVersion: cluster.x-k8s.io/v1alpha2
+apiVersion: cluster.x-k8s.io/v1alpha3
 kind: MachineDeployment
 metadata:
   labels:
@@ -337,18 +337,18 @@ spec:
     spec:
       bootstrap:
         configRef:
-          apiVersion: bootstrap.cluster.x-k8s.io/v1alpha2
+          apiVersion: bootstrap.cluster.x-k8s.io/v1alpha3
           kind: KubeadmConfigTemplate
           name: workload-cluster-1-md-0
           namespace: default
       infrastructureRef:
-        apiVersion: infrastructure.cluster.x-k8s.io/v1alpha2
+        apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
         kind: VSphereMachineTemplate
         name: workload-cluster-1-md-0
         namespace: default
       version: 1.15.4
 ---
-apiVersion: infrastructure.cluster.x-k8s.io/v1alpha2
+apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
 kind: VSphereMachineTemplate
 metadata:
   name: workload-cluster-1-md-0

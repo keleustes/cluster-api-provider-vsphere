@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package v1alpha2
+package v1alpha3
 
 import (
 	v1 "k8s.io/api/core/v1"
@@ -146,6 +146,7 @@ type VSphereMachineStatus struct {
 
 // +kubebuilder:object:root=true
 // +kubebuilder:resource:path=vspheremachines,scope=Namespaced,categories=cluster-api
+// +kubebuilder:storageversion
 // +kubebuilder:subresource:status
 
 // VSphereMachine is the Schema for the vspheremachines API

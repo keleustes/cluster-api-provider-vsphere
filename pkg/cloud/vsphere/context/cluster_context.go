@@ -25,17 +25,17 @@ import (
 	"github.com/pkg/errors"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/klog/klogr"
-	clusterv1 "sigs.k8s.io/cluster-api/api/v1alpha2"
+	clusterv1 "sigs.k8s.io/cluster-api/api/v1alpha3"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	"sigs.k8s.io/cluster-api-provider-vsphere/api/v1alpha2"
+	"sigs.k8s.io/cluster-api-provider-vsphere/api/v1alpha3"
 )
 
 // ClusterContextParams are the parameters needed to create a ClusterContext.
 type ClusterContextParams struct {
 	Context        context.Context
 	Cluster        *clusterv1.Cluster
-	VSphereCluster *v1alpha2.VSphereCluster
+	VSphereCluster *v1alpha3.VSphereCluster
 	Client         client.Client
 	Logger         logr.Logger
 }
@@ -44,7 +44,7 @@ type ClusterContextParams struct {
 type ClusterContext struct {
 	context.Context
 	Cluster        *clusterv1.Cluster
-	VSphereCluster *v1alpha2.VSphereCluster
+	VSphereCluster *v1alpha3.VSphereCluster
 	Client         client.Client
 	Logger         logr.Logger
 
