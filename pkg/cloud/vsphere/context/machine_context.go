@@ -21,24 +21,24 @@ import (
 
 	"github.com/pkg/errors"
 	"k8s.io/apimachinery/pkg/runtime"
-	clusterv1 "sigs.k8s.io/cluster-api/api/v1alpha2"
+	clusterv1 "sigs.k8s.io/cluster-api/api/v1alpha3"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	"sigs.k8s.io/cluster-api-provider-vsphere/api/v1alpha2"
+	"sigs.k8s.io/cluster-api-provider-vsphere/api/v1alpha3"
 )
 
 // MachineContextParams are the parameters needed to create a MachineContext.
 type MachineContextParams struct {
 	ClusterContextParams
 	Machine        *clusterv1.Machine
-	VSphereMachine *v1alpha2.VSphereMachine
+	VSphereMachine *v1alpha3.VSphereMachine
 }
 
 // MachineContext is a Go context used with a CAPI cluster.
 type MachineContext struct {
 	*ClusterContext
 	Machine        *clusterv1.Machine
-	VSphereMachine *v1alpha2.VSphereMachine
+	VSphereMachine *v1alpha3.VSphereMachine
 	Session        *Session
 
 	vsphereMachinePatch client.Patch
@@ -49,7 +49,7 @@ type MachineContext struct {
 func NewMachineContextFromClusterContext(
 	clusterCtx *ClusterContext,
 	machine *clusterv1.Machine,
-	vsphereMachine *v1alpha2.VSphereMachine) (*MachineContext, error) {
+	vsphereMachine *v1alpha3.VSphereMachine) (*MachineContext, error) {
 
 	clusterCtx.Logger = clusterCtx.Logger.WithName(machine.Name)
 
