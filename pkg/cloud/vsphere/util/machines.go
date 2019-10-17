@@ -39,7 +39,7 @@ func GetMachinesInCluster(
 	controllerClient client.Client,
 	namespace, clusterName string) ([]*clusterv1.Machine, error) {
 
-	labels := map[string]string{clusterv1.MachineClusterLabelName: clusterName}
+	labels := map[string]string{clusterv1.ClusterLabelName: clusterName}
 	machineList := &clusterv1.MachineList{}
 
 	if err := controllerClient.List(
@@ -65,7 +65,7 @@ func GetVSphereMachinesInCluster(
 	controllerClient client.Client,
 	namespace, clusterName string) ([]*infrav1.VSphereMachine, error) {
 
-	labels := map[string]string{clusterv1.MachineClusterLabelName: clusterName}
+	labels := map[string]string{clusterv1.ClusterLabelName: clusterName}
 	machineList := &infrav1.VSphereMachineList{}
 
 	if err := controllerClient.List(
